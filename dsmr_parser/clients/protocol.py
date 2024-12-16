@@ -4,7 +4,7 @@ from functools import partial
 import asyncio
 import logging
 
-from serial_asyncio import create_serial_connection
+from serial_asyncio_fast import create_serial_connection
 
 from dsmr_parser import telegram_specifications
 from dsmr_parser.clients.telegram_buffer import TelegramBuffer
@@ -161,7 +161,7 @@ class DSMRProtocol(asyncio.Protocol):
         try:
             parsed_telegram = self.telegram_parser.parse(telegram)
         except InvalidChecksumError as e:
-            self.log.warning(str(e))
+            self.log.info(str(e))
         except ParseError:
             self.log.exception("failed to parse telegram")
         else:
