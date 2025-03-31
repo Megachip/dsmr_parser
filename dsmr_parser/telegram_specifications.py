@@ -1368,3 +1368,161 @@ EON_HUNGARY = {
         }
     ]
 }
+
+LOG = {
+    'checksum_support': False,  # Checksum validation not supported in this protocol
+    'objects': [
+        # Device identification
+        {
+            'obis_reference': obis.EQUIPMENT_IDENTIFIER,
+            'value_parser': CosemParser(ValueParser(str)),
+            'value_name': 'EQUIPMENT_IDENTIFIER'
+        },
+        {
+            'obis_reference': obis.FIRMWARE_INFO,
+            'value_parser': CosemParser(ValueParser(str)),
+            'value_name': 'FIRMWARE_VERSION'
+        },
+
+        # Energy consumption (cumulative)
+        {
+            'obis_reference': obis.ELECTRICITY_IMPORTED_TOTAL,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'TOTAL_ENERGY_IMPORTED'
+        },
+        {
+            'obis_reference': obis.ELECTRICITY_USED_TARIFF_1,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'TARIFF1_ENERGY_IMPORTED'
+        },
+        {
+            'obis_reference': obis.ELECTRICITY_USED_TARIFF_2,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'TARIFF2_ENERGY_IMPORTED'
+        },
+        {
+            'obis_reference': obis.ELECTRICITY_DELIVERED_TOTAL,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'TOTAL_ENERGY_DELIVERED'
+        },
+
+        # Instantaneous values
+        {
+            'obis_reference': obis.CURRENT_ELECTRICITY_USAGE,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'CURRENT_POWER_USAGE'
+        },
+        {
+            'obis_reference': obis.CURRENT_ELECTRICITY_DELIVERY,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'CURRENT_POWER_DELIVERY'
+        },
+
+        # Voltage measurements
+        {
+            'obis_reference': obis.INSTANTANEOUS_VOLTAGE_L1,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'VOLTAGE_L1'
+        },
+        {
+            'obis_reference': obis.INSTANTANEOUS_VOLTAGE_L2,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'VOLTAGE_L2'
+        },
+        {
+            'obis_reference': obis.INSTANTANEOUS_VOLTAGE_L3,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'VOLTAGE_L3'
+        },
+
+        # Current measurements
+        {
+            'obis_reference': obis.INSTANTANEOUS_CURRENT_L1,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'CURRENT_L1'
+        },
+        {
+            'obis_reference': obis.INSTANTANEOUS_CURRENT_L2,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'CURRENT_L2'
+        },
+        {
+            'obis_reference': obis.INSTANTANEOUS_CURRENT_L3,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'CURRENT_L3'
+        },
+
+        # Phase angles
+        {
+            'obis_reference': obis.PHASE_ANGLE_UL2_UL1,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'PHASE_ANGLE_UL2_UL1'
+        },
+        {
+            'obis_reference': obis.PHASE_ANGLE_UL3_UL1,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'PHASE_ANGLE_UL3_UL1'
+        },
+        {
+            'obis_reference': obis.PHASE_ANGLE_IL1_UL1,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'PHASE_ANGLE_IL1_UL1'
+        },
+        {
+            'obis_reference': obis.PHASE_ANGLE_IL2_UL2,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'PHASE_ANGLE_IL2_UL2'
+        },
+        {
+            'obis_reference': obis.PHASE_ANGLE_IL3_UL3,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'PHASE_ANGLE_IL3_UL3'
+        },
+
+        # Network parameters
+        {
+            'obis_reference': obis.FREQUENCY,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'NETWORK_FREQUENCY'
+        },
+
+        # Historical consumption data
+        {
+            'obis_reference': obis.HISTORICAL_ENERGY_1D,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'ENERGY_1D'
+        },
+        {
+            'obis_reference': obis.HISTORICAL_ENERGY_7D,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'ENERGY_7D'
+        },
+        {
+            'obis_reference': obis.HISTORICAL_ENERGY_30D,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'ENERGY_30D'
+        },
+        {
+            'obis_reference': obis.HISTORICAL_ENERGY_365D,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'ENERGY_365D'
+        },
+        {
+            'obis_reference': obis.HISTORICAL_ENERGY_SINCE_RESET,
+            'value_parser': CosemParser(ValueParser(Decimal)),
+            'value_name': 'ENERGY_SINCE_RESET'
+        },
+
+        # Device status and diagnostics
+        {
+            'obis_reference': obis.PARAMETER_CRC,
+            'value_parser': CosemParser(ValueParser(str)),
+            'value_name': 'PARAMETER_CRC'
+        },
+        {
+            'obis_reference': obis.DEVICE_ERROR_STATUS,
+            'value_parser': CosemParser(ValueParser(str)),
+            'value_name': 'ERROR_STATUS'
+        }
+    ]
+}
